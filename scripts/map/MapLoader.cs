@@ -1,10 +1,14 @@
 using Godot;
 
+/// <summary>
+/// 地图加载器
+/// </summary>
 public partial class MapLoader : Node2D
 {
     /// <summary>
     /// 区块大小
     /// </summary>
+    [Export]
     public Vector2I ChunkSize { get; set; } = new Vector2I(16, 16);
 
     /// <summary>
@@ -30,4 +34,8 @@ public partial class MapLoader : Node2D
     /// </summary>
     [Signal]
     public delegate void ChunkUnloadedEventHandler(Vector2I chunkCoord);
+
+    public override void _Ready()
+    {
+    }
 }

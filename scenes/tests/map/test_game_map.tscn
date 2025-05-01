@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://wg85dui221jj"]
+
+[ext_resource type="Script" uid="uid://b0rhl85v3ij0n" path="res://scripts/map/MapLoader.cs" id="1_rpv42"]
+
+[node name="TestGameMap" type="Node2D"]
+
+[node name="MapLoader" type="Node2D" parent="."]
+script = ExtResource("1_rpv42")

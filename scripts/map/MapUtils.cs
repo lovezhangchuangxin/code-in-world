@@ -32,18 +32,65 @@ public static class MapUtils
     public static Vector2I ChunkPixelSize { get; set; }
 
     /// <summary>
+    /// 八个方向
+    /// </summary>
+    public static readonly Vector2I[] DIRECTIONS =
+    {
+        new(0, -1), // 上
+        new(1, -1), // 右上
+        new(1, 0), // 右
+        new(1, 1), // 右下
+        new(0, 1), // 下
+        new(-1, 1), // 左下
+        new(-1, 0), // 左
+        new(-1, -1) // 左上
+    };
+
+    /// <summary>
     /// 全局的瓦片坐标转为区块坐标
     /// </summary>
-    public static Vector2I GlobalTileToChunk(Vector2I globalTileCoord)
+    public static Vector2I GlobalTileToChunk(Vector2I globalTileCoords)
     {
-        return globalTileCoord / ChunkSize;
+        return globalTileCoords / ChunkSize;
     }
 
     /// <summary>
     /// 全局的瓦片坐标转为区块内的瓦片坐标
     /// </summary>
-    public static Vector2I GlobalTileToLocal(Vector2I globalTileCoord)
+    public static Vector2I GlobalTileToLocal(Vector2I globalTileCoords)
     {
-        return globalTileCoord % ChunkSize;
+        return globalTileCoords % ChunkSize;
+    }
+
+    /// <summary>
+    /// 全局像素坐标转为区块坐标
+    /// </summary>
+    public static Vector2I GlobalPixelToChunk(Vector2I globalPixelCoords)
+    {
+        return globalPixelCoords / ChunkPixelSize;
+    }
+
+    /// <summary>
+    /// 全局像素坐标转瓦片坐标
+    /// </summary>
+    public static Vector2I GlobalPixelToTile(Vector2I globalPixelCoords)
+    {
+        return globalPixelCoords / TileSize;
+    }
+
+    /// <summary>
+    /// 区块坐标转全局像素坐标
+    /// </summary>
+    public static Vector2I ChunkToGlobalPixel(Vector2I chunkCoords)
+    {
+        return chunkCoords * ChunkPixelSize;
+    }
+
+    /// <summary>
+    /// 区块坐标转全局瓦片坐标
+    /// </summary>
+    public static Vector2I ChunkToGlobalTile(Vector2I chunkCoords)
+    {
+        return chunkCoords * ChunkSize;
     }
 }
