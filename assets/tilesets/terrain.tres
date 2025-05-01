@@ -1,0 +1,43 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://dp7pwlln70v26"]
+
+[ext_resource type="Texture2D" uid="uid://c3cvj7npnoae0" path="res://assets/images/terrains/rock.png" id="1_fxl1w"]
+[ext_resource type="Shader" uid="uid://ddrow7t1fg5s6" path="res://shaders/water_shader.gdshader" id="2_6pcam"]
+[ext_resource type="Texture2D" uid="uid://0hctcdmctfd1" path="res://assets/images/terrains/water.png" id="3_i23q2"]
+[ext_resource type="Texture2D" uid="uid://cttrfnno6e4et" path="res://assets/images/terrains/sand.png" id="4_rcva6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w7ksa"]
+texture = ExtResource("1_fxl1w")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = 1
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_w7ksa"]
+shader = ExtResource("2_6pcam")
+shader_parameter/tint = Color(0.0535614, 0.515993, 0.814205, 1)
+shader_parameter/wave_speed = 2.0
+shader_parameter/wave_amplitude = 0.1
+shader_parameter/wave_frequency = 4.0
+shader_parameter/wave_direction = Vector2(-1, 1)
+shader_parameter/distortion_strength = 0.02
+shader_parameter/time_scale = 1.0
+shader_parameter/ripple_strength = 0.005
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ds21a"]
+texture = ExtResource("3_i23q2")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/material = SubResource("ShaderMaterial_w7ksa")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jx7cg"]
+texture = ExtResource("4_rcva6")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = 2
+
+[resource]
+tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "type"
+custom_data_layer_0/type = 2
+sources/4 = SubResource("TileSetAtlasSource_ds21a")
+sources/8 = SubResource("TileSetAtlasSource_jx7cg")
+sources/10 = SubResource("TileSetAtlasSource_w7ksa")
