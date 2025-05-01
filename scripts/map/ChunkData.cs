@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 using Godot.Collections;
@@ -40,7 +41,7 @@ public partial class ChunkData : Resource
     /// <summary>
     /// 需要更新的数据
     /// </summary>
-    public TileUpdateData[] NeedUpdateData = [];
+    public List<TileUpdateData> NeedUpdateData = [];
 
     /// <summary>
     /// 根据提供的层初始化区块数据，每层表示一个 TileMapLayer
@@ -91,6 +92,7 @@ public partial class ChunkData : Resource
         data[index + 9] = (byte)((atlasCoord.Y >> 8) & 0xff);
         data[index + 10] = (byte)(alternativeTile & 0xff);
         data[index + 11] = (byte)((alternativeTile >> 8) & 0xff);
+        TileData[layer] = data;
 
         if (modified && !IsModified)
         {
@@ -99,7 +101,7 @@ public partial class ChunkData : Resource
 
         if (CanUpdate)
         {
-            NeedUpdateData.Append(new TileUpdateData()
+            NeedUpdateData.Add(new TileUpdateData()
             {
                 coords = coords,
                 layer = layer,
@@ -108,6 +110,20 @@ public partial class ChunkData : Resource
                 alternativeTile = alternativeTile
             });
         }
+    }
+
+    public void SetTileData(Vector2I coords, int layer, TerrainType type, bool modified = false)
+    {
+        if (!MapUtils.MapLoader.AutoTile.TilesDataByType.TryGetValue(type, out TileData tileData))
+        {
+            GD.PushWarning($"SetTile: type {type} is not in AutoTile data");
+            return;
+        }
+
+        int sourceId = tileData.GetMeta("sourceId").AsInt32();
+        Vector2I atlasCoord = tileData.GetMeta("atlasCoords").AsVector2I();
+        int alternative = tileData.GetMeta("alternative").AsInt32();
+        SetTileData(coords, layer, sourceId, atlasCoord, alternative, modified);
     }
 
     /// <summary>

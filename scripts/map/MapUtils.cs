@@ -35,7 +35,7 @@ public static class MapUtils
     /// 八个方向
     /// </summary>
     public static readonly Vector2I[] DIRECTIONS =
-    {
+    [
         new(0, -1), // 上
         new(1, -1), // 右上
         new(1, 0), // 右
@@ -44,7 +44,7 @@ public static class MapUtils
         new(-1, 1), // 左下
         new(-1, 0), // 左
         new(-1, -1) // 左上
-    };
+    ];
 
     /// <summary>
     /// 全局的瓦片坐标转为区块坐标
@@ -65,9 +65,9 @@ public static class MapUtils
     /// <summary>
     /// 全局像素坐标转为区块坐标
     /// </summary>
-    public static Vector2I GlobalPixelToChunk(Vector2I globalPixelCoords)
+    public static Vector2I GlobalPixelToChunk(Vector2 globalPixelCoords)
     {
-        return globalPixelCoords / ChunkPixelSize;
+        return (Vector2I)globalPixelCoords / ChunkPixelSize;
     }
 
     /// <summary>

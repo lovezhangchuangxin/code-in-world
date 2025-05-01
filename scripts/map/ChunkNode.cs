@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
@@ -29,12 +30,20 @@ public partial class ChunkNode : Node2D
         // 设置位置
         GlobalPosition = MapUtils.ChunkToGlobalPixel(ChunkData.ChunkCoord);
         // 使用区块数据来生产 tileMapLayer 节点
+        _layers = new TileMapLayer[ChunkData.TileData.Count];
         for (int i = 0; i < ChunkData.TileData.Count; i++)
         {
-            TileMapLayer layer = new();
-            layer.TileSet = MapUtils.TileSet;
-            layer.TextureFilter = CanvasItem.TextureFilterEnum.Nearest;
-            layer.TileMapData = ChunkData.TileData[i];
+            TileMapLayer layer = new()
+            {
+                TileSet = MapUtils.TileSet,
+                TextureFilter = TextureFilterEnum.Nearest,
+                TileMapData = ChunkData.TileData[i]
+            };
+
+            if (ChunkData.ChunkCoord == Vector2I.Zero)
+            {
+                GD.Print($"ChunkData.TileData: {ChunkData.TileData[i].Length} {ChunkData.TileData[i][2]} {ChunkData.TileData[i][3]}");
+            }
 
             if (YSortLayers.Contains(i))
             {
@@ -46,15 +55,15 @@ public partial class ChunkNode : Node2D
                 layer.ZIndex = -1;
             }
 
-            _layers.Append(layer);
+            _layers[i] = layer;
             AddChild(layer);
         }
     }
 
     public override void _Process(double delta)
     {
-        TileUpdateData[] needUpdateData = ChunkData.NeedUpdateData;
-        ChunkData.NeedUpdateData = [];
+        List<TileUpdateData> needUpdateData = ChunkData.NeedUpdateData;
+        ChunkData.NeedUpdateData.Clear();
 
         foreach (var data in needUpdateData)
         {

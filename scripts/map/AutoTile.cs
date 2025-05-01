@@ -2,6 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Godot;
 
+/// <summary>
+/// 自动瓦片
+/// 存储瓦片相关的数据，可以根据类型获取对应的瓦片数据，以及根据地形自动设置瓦片
+/// </summary>
 public partial class AutoTile : Node
 {
     /// <summary>
@@ -33,12 +37,13 @@ public partial class AutoTile : Node
                     {
                         int alternative = tileSetAtlasSource.GetAlternativeTileId(atlasCoords, k);
                         TileData tileData = tileSetAtlasSource.GetTileData(atlasCoords, alternative);
+                        tileData.SetMeta("sourceId", sourceId);
+                        tileData.SetMeta("atlasCoords", atlasCoords);
+                        tileData.SetMeta("alternative", alternative);
+
                         int id = GetTileDataId(tileData);
                         if (id >= 0)
                         {
-                            tileData.SetMeta("sourceId", sourceId);
-                            tileData.SetMeta("atlasCoords", atlasCoords);
-                            tileData.SetMeta("alternative", alternative);
                             TerrainTilesData.Add(id, tileData);
                         }
 
@@ -178,7 +183,7 @@ public partial class AutoTile : Node
 
         TilePeering bits = new();
         // 需要更新的邻居坐标
-        Vector2I[] updateCoords = [];
+        List<Vector2I> updateCoords = [];
 
         foreach (Vector2I dir in MapUtils.DIRECTIONS)
         {
@@ -202,7 +207,7 @@ public partial class AutoTile : Node
             if (terrainSet == neighborTerrain.terrainSet && terrain == neighborTerrain.terrain)
             {
                 bits.Set(dir, 1);
-                updateCoords.Append(neighborCoords);
+                updateCoords.Add(neighborCoords);
             }
         }
 

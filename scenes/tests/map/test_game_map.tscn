@@ -1,8 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://wg85dui221jj"]
+[gd_scene load_steps=4 format=3 uid="uid://wg85dui221jj"]
 
 [ext_resource type="Script" uid="uid://b0rhl85v3ij0n" path="res://scripts/map/MapLoader.cs" id="1_rpv42"]
+[ext_resource type="TileSet" uid="uid://dp7pwlln70v26" path="res://assets/tilesets/terrain.tres" id="2_6qw5h"]
+[ext_resource type="Script" uid="uid://b126pe3831lqq" path="res://scripts/map/MapGenerator.cs" id="2_qdgof"]
 
 [node name="TestGameMap" type="Node2D"]
 
-[node name="MapLoader" type="Node2D" parent="."]
+[node name="MapLoader" type="Node2D" parent="." node_paths=PackedStringArray("ChunkParent", "MapGenerator")]
 script = ExtResource("1_rpv42")
+ChunkParent = NodePath("Chunks")
+TileSet = ExtResource("2_6qw5h")
+MapGenerator = NodePath("MapGenerator")
+
+[node name="MapGenerator" type="Node" parent="MapLoader"]
+script = ExtResource("2_qdgof")
+
+[node name="Chunks" type="Node2D" parent="MapLoader"]
