@@ -4,4 +4,7 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>CodeinWorld</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Jint" Version="4.2.2" />
+  </ItemGroup>
 </Project>

@@ -21,6 +21,12 @@ public partial class MapLoader : Node2D
     public Node2D ChunkParent { get; set; } = new();
 
     /// <summary>
+    /// 世界节点，世界的所有物体都放在这个节点下
+    /// </summary>
+    [Export]
+    public Node2D World { get; set; } = new();
+
+    /// <summary>
     /// 地图的瓦片集
     /// </summary>
     [Export]
