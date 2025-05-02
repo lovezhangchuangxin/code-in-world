@@ -93,4 +93,9 @@ public static class MapUtils
     {
         return chunkCoords * ChunkSize;
     }
+
+    /// <summary>
+    /// 获取屏幕左上角和右下角的区块坐标
+    /// </summary>
+
 }

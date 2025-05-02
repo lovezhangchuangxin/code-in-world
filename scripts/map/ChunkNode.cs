@@ -37,7 +37,7 @@ public partial class ChunkNode : Node2D
             {
                 TileSet = MapUtils.TileSet,
                 TextureFilter = TextureFilterEnum.Nearest,
-                TileMapData = ChunkData.TileData[i]
+                TileMapData = ChunkData._tileData[i]
             };
 
             if (ChunkData.ChunkCoord == Vector2I.Zero)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://wg85dui221jj"]
+[gd_scene load_steps=5 format=3 uid="uid://wg85dui221jj"]
 
 [ext_resource type="Script" uid="uid://b0rhl85v3ij0n" path="res://scripts/map/MapLoader.cs" id="1_rpv42"]
 [ext_resource type="TileSet" uid="uid://dp7pwlln70v26" path="res://assets/tilesets/terrain.tres" id="2_6qw5h"]
 [ext_resource type="Script" uid="uid://b126pe3831lqq" path="res://scripts/map/MapGenerator.cs" id="2_qdgof"]
+[ext_resource type="Script" uid="uid://borf7uftyy7tw" path="res://scripts/map/MapVision.cs" id="4_416la"]
 
 [node name="TestGameMap" type="Node2D"]
 
@@ -11,8 +12,12 @@ script = ExtResource("1_rpv42")
 ChunkParent = NodePath("Chunks")
 TileSet = ExtResource("2_6qw5h")
 MapGenerator = NodePath("MapGenerator")
+ExtraLoadRange = 4
 
 [node name="MapGenerator" type="Node" parent="MapLoader"]
 script = ExtResource("2_qdgof")
 
 [node name="Chunks" type="Node2D" parent="MapLoader"]
+
+[node name="MapVision" type="Camera2D" parent="MapLoader"]
+script = ExtResource("4_416la")

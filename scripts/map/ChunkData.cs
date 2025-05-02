@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Godot;
 using Godot.Collections;
 
@@ -8,6 +7,11 @@ using Godot.Collections;
 /// </summary>
 public partial class ChunkData : Resource
 {
+    /// <summary>
+    /// tiledata 的原始数据，避免使用 Godot 的 Array 从而导致频繁的拷贝和封装
+    /// </summary>
+    public List<byte[]> _tileData = [];
+
     /// <summary>
     /// 每个元素代表一个 TileMapLayer 使用的数据
     /// </summary>
@@ -58,6 +62,7 @@ public partial class ChunkData : Resource
             // 版本相关的数据存储再开头两个字节
             data[0] = 0;
             data[1] = 0;
+            _tileData.Add(data);
             TileData[i] = data;
         }
     }
@@ -74,7 +79,7 @@ public partial class ChunkData : Resource
         }
 
         // 取出对应层的瓦片数据
-        var data = TileData[layer];
+        var data = _tileData[layer];
         // 偏移用来存储版本的 2 个字节
         var index = 2;
         // 计算对应瓦片在瓦片数据层的开始位置
