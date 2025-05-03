@@ -5,9 +5,22 @@ using Godot;
 /// </summary>
 public enum TerrainType
 {
+    /// <summary>
+    /// 水
+    /// </summary>
     Water,
+    /// <summary>
+    /// 地面
+    /// </summary>
     Ground,
-    Sand
+    /// <summary>
+    /// 沙子
+    /// </summary>
+    Sand,
+    /// <summary>
+    /// 岩石
+    /// </summary>
+    Rock
 }
 
 /// <summary>
