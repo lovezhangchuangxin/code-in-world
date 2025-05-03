@@ -1,6 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using Godot;
 
 /// <summary>
@@ -18,13 +16,13 @@ public partial class MapLoader : Node2D
     /// 区块的父节点，所有区块节点放在这个节点下
     /// </summary>
     [Export]
-    public Node2D ChunkParent { get; set; } = new();
+    public Node2D ChunkParent { get; set; }
 
     /// <summary>
     /// 世界节点，世界的所有物体都放在这个节点下
     /// </summary>
     [Export]
-    public Node2D World { get; set; } = new();
+    public Node2D World { get; set; }
 
     /// <summary>
     /// 地图的瓦片集

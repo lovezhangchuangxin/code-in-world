@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://wg85dui221jj"]
 
 [ext_resource type="Script" uid="uid://b0rhl85v3ij0n" path="res://scripts/map/MapLoader.cs" id="1_rpv42"]
-[ext_resource type="TileSet" uid="uid://dp7pwlln70v26" path="res://assets/tilesets/terrain.tres" id="2_6qw5h"]
+[ext_resource type="TileSet" uid="uid://dp7pwlln70v26" path="res://assets/tilesets/terrain.tres" id="2_8rj4w"]
 [ext_resource type="Script" uid="uid://b126pe3831lqq" path="res://scripts/map/MapGenerator.cs" id="2_qdgof"]
 [ext_resource type="Script" uid="uid://borf7uftyy7tw" path="res://scripts/map/MapVision.cs" id="4_416la"]
 [ext_resource type="Script" uid="uid://b4tkdqi48begx" path="res://scripts/core/ScriptExector.cs" id="5_8rj4w"]
@@ -12,9 +12,8 @@
 script = ExtResource("1_rpv42")
 ChunkParent = NodePath("Chunks")
 World = NodePath("World")
-TileSet = ExtResource("2_6qw5h")
+TileSet = ExtResource("2_8rj4w")
 MapGenerator = NodePath("MapGenerator")
-ExtraLoadRange = 4
 
 [node name="MapGenerator" type="Node" parent="MapLoader"]
 script = ExtResource("2_qdgof")
