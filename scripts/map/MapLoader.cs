@@ -284,6 +284,5 @@ public partial class MapLoader : Node2D
 
     public override void _ExitTree()
     {
-        base._ExitTree();
     }
 }

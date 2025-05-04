@@ -14,25 +14,25 @@
 texture = ExtResource("4_6pcam")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/custom_data_0 = 1
+0:0/0/custom_data_0 = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rcva6"]
 texture = ExtResource("4_rcva6")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/custom_data_0 = 2
+0:0/0/custom_data_0 = 3
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tvebc"]
 texture = ExtResource("3_6pcam")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/custom_data_0 = 3
+0:0/0/custom_data_0 = 4
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bf7n"]
 texture = ExtResource("4_i23q2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/custom_data_0 = 4
+0:0/0/custom_data_0 = 5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w7ksa"]
 shader = ExtResource("2_6pcam")
@@ -50,21 +50,25 @@ texture = ExtResource("3_i23q2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/material = SubResource("ShaderMaterial_w7ksa")
+0:0/0/custom_data_0 = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1u5qq"]
 texture = ExtResource("7_5bf7n")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/custom_data_0 = 8
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_im4o5"]
 texture = ExtResource("8_dttwk")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/custom_data_0 = 6
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0xkb"]
 texture = ExtResource("9_vrvbw")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/custom_data_0 = 7
 
 [resource]
 tile_size = Vector2i(32, 32)

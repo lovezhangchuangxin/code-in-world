@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Godot;
 
 /// <summary>
 /// 游戏全局对象
@@ -9,6 +10,11 @@ public static class Game
     /// 游戏 tick 数
     /// </summary>
     public static int Tick { get; set; } = 0;
+
+    /// <summary>
+    /// 1 tick多长，单位是秒
+    /// </summary>
+    public static float TickTime { get; set; } = 1f;
 
     /// <summary>
     /// 玩家的所有机器人
@@ -35,6 +41,14 @@ public class GameApi
     }
 
     /// <summary>
+    /// 获取游戏 tick 时间
+    /// </summary>
+    public float GetTickTime()
+    {
+        return Game.TickTime;
+    }
+
+    /// <summary>
     /// 获取玩家的所有机器人
     /// </summary>
     public Dictionary<int, BotApi> GetBots()
@@ -50,9 +64,9 @@ public class GameApi
     /// <summary>
     /// 创建机器人
     /// </summary>
-    public bool CreateBot(string botName)
+    public bool CreateBot(string botName, string color = "yellow")
     {
-        Bot bot = Bot.CreateBot(botName);
+        Bot bot = Bot.CreateBot(botName, color);
         MapUtils.MapLoader.World.AddChild(bot);
         return true;
     }

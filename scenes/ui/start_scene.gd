@@ -7,7 +7,7 @@ extends CanvasLayer
 @onready var exit_button: Button = $Control/VBoxContainer/ExitButton
 
 func _on_start_button_pressed() -> void:
-    pass # Replace with function body.
+    SceneManager.load_scene(SceneConstant.SCENE_PATH["Main"])
 
 func _on_load_game_button_pressed() -> void:
     pass # Replace with function body.
@@ -19,5 +19,5 @@ func _on_option_button_pressed() -> void:
     pass # Replace with function body.
 
 func _on_exit_button_pressed() -> void:
-    # 退出前记得保存
+    # TODO: 退出前记得保存
     get_tree().quit()

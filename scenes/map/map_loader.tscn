@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://ce17sihxatlj"]
+
+[ext_resource type="Script" uid="uid://b0rhl85v3ij0n" path="res://scripts/map/MapLoader.cs" id="1_d7i3l"]
+[ext_resource type="TileSet" uid="uid://dp7pwlln70v26" path="res://assets/tilesets/terrain.tres" id="2_7cqmd"]
+[ext_resource type="Script" uid="uid://b126pe3831lqq" path="res://scripts/map/MapGenerator.cs" id="3_cwt2a"]
+[ext_resource type="Script" uid="uid://borf7uftyy7tw" path="res://scripts/map/MapVision.cs" id="4_5acru"]
+[ext_resource type="Script" uid="uid://b4tkdqi48begx" path="res://scripts/core/ScriptExector.cs" id="5_amj2h"]
+[ext_resource type="PackedScene" uid="uid://eseg13us8ief" path="res://scenes/ui/map_loading.tscn" id="6_7cqmd"]
+
+[node name="MapLoader" type="Node2D" node_paths=PackedStringArray("ChunkParent", "World", "MapGenerator")]
+script = ExtResource("1_d7i3l")
+ChunkParent = NodePath("Chunks")
+World = NodePath("World")
+TileSet = ExtResource("2_7cqmd")
+MapGenerator = NodePath("MapGenerator")
+ExtraLoadRange = 9
+
+[node name="MapGenerator" type="Node" parent="."]
+script = ExtResource("3_cwt2a")
+
+[node name="Chunks" type="Node2D" parent="."]
+
+[node name="MapVision" type="Camera2D" parent="."]
+script = ExtResource("4_5acru")
+
+[node name="ScriptExector" type="Node" parent="."]
+script = ExtResource("5_amj2h")
+scriptPath = "D:\\Games\\GodotGame\\code-in-world\\scripts\\core\\example"
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="MapLoading" parent="." instance=ExtResource("6_7cqmd")]
+
+[connection signal="MapInit" from="." to="MapLoading" method="_on_map_loader_map_init"]

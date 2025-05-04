@@ -63,6 +63,14 @@ public static class MapUtils
     }
 
     /// <summary>
+    /// 全局瓦片坐标转像素坐标
+    /// </summary>
+    public static Vector2I GlobalTileToPixel(Vector2I globalTileCoords)
+    {
+        return globalTileCoords * TileSize;
+    }
+
+    /// <summary>
     /// 全局像素坐标转为区块坐标
     /// </summary>
     public static Vector2I GlobalPixelToChunk(Vector2 globalPixelCoords)
@@ -93,9 +101,4 @@ public static class MapUtils
     {
         return chunkCoords * ChunkSize;
     }
-
-    /// <summary>
-    /// 获取屏幕左上角和右下角的区块坐标
-    /// </summary>
-
 }

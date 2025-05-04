@@ -1,17 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bly2d2giojg22"]
+[gd_scene load_steps=3 format=3 uid="uid://bly2d2giojg22"]
 
+[ext_resource type="Texture2D" uid="uid://bvyq57khiddsf" path="res://assets/images/bots/bot.png" id="1_j7lnf"]
 [ext_resource type="Script" uid="uid://bqeg4b2r0t4bm" path="res://scripts/core/bot/Bot.cs" id="1_pd7py"]
-[ext_resource type="Texture2D" uid="uid://caitujmhgvigu" path="res://assets/images/bots/icon.svg" id="2_j7lnf"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_pd7py"]
-radius = 32.0
-
-[node name="Bot" type="CharacterBody2D"]
+[node name="Bot" type="Sprite2D"]
+texture = ExtResource("1_j7lnf")
 script = ExtResource("1_pd7py")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_j7lnf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_pd7py")

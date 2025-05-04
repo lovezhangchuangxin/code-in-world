@@ -176,8 +176,7 @@ public partial class ChunkData : Resource
         }
 
         TileUpdateData data = GetTileData(coords, layer);
-        TileSetSource source;
-        if (MapUtils.TileSet.HasSource(data.sourceId) && (source = MapUtils.TileSet.GetSource(data.sourceId)) is TileSetAtlasSource atlasSource)
+        if (MapUtils.TileSet.HasSource(data.sourceId) && MapUtils.TileSet.GetSource(data.sourceId) is TileSetAtlasSource atlasSource)
         {
             var tileData = atlasSource.GetTileData(data.atlasCoords, data.alternativeTile);
             return new TileTerrain()
@@ -193,6 +192,29 @@ public partial class ChunkData : Resource
                 terrainSet = -1,
                 terrain = -1
             };
+        }
+    }
+
+    /// <summary>
+    /// 根据局部瓦片坐标获取瓦片类型
+    /// </summary>
+    public TerrainType GetTileType(Vector2I coords, int layer)
+    {
+        if (!IsCoordInChunk(coords))
+        {
+            GD.PushWarning($"GetTile: coord {coords} is out of chunk size {ChunkSize}");
+            return TerrainType.None;
+        }
+
+        TileUpdateData data = GetTileData(coords, layer);
+        if (MapUtils.TileSet.HasSource(data.sourceId) && MapUtils.TileSet.GetSource(data.sourceId) is TileSetAtlasSource atlasSource)
+        {
+            var tileData = atlasSource.GetTileData(data.atlasCoords, data.alternativeTile);
+            return (TerrainType)(int)tileData.GetCustomData("type");
+        }
+        else
+        {
+            return TerrainType.None;
         }
     }
 

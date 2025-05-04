@@ -11,12 +11,6 @@ public partial class ScriptExector : Node
     public ScriptEngine ScriptEngine { get; set; }
 
     /// <summary>
-    /// 多长时间执行一次，单位毫秒
-    /// </summary>
-    [Export]
-    public double interval = 100;
-
-    /// <summary>
     /// 上次执行的时间
     /// </summary>
     private double lastTime = 0;
@@ -40,7 +34,7 @@ public partial class ScriptExector : Node
             return;
         }
 
-        if (Time.GetTicksMsec() - lastTime < interval)
+        if (Time.GetTicksMsec() - lastTime < Game.TickTime * 1000)
         {
             return;
         }

@@ -6,6 +6,10 @@ using Godot;
 public enum TerrainType
 {
     /// <summary>
+    /// 啥都没有
+    /// </summary>
+    None,
+    /// <summary>
     /// 水
     /// </summary>
     Water,
@@ -25,6 +29,18 @@ public enum TerrainType
     /// 墙壁
     /// </summary>
     Wall,
+    /// <summary>
+    /// 铜
+    /// </summary>
+    Copper,
+    /// <summary>
+    /// 铁
+    /// </summary>
+    Iron,
+    /// <summary>
+    /// 煤
+    /// </summary>
+    Coal,
 }
 
 /// <summary>
