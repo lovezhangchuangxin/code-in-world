@@ -27,7 +27,7 @@ public partial class Bot : Sprite2D
     /// </summary>
     public Tween Tween
     {
-        get => _tween ??= CreateTween();
+        get => _tween ??= CreateTween().SetParallel(true);
         set => _tween = value;
     }
 
@@ -73,9 +73,9 @@ public partial class Bot : Sprite2D
 
         if (Tween.IsRunning())
         {
-            GD.Print("Tween is running, stop it first.");
             callable.Call();
         }
+
         Tween.TweenProperty(this, property, finalValue, duration);
         Tween.TweenCallback(callable).SetDelay(Game.TickTime);
     }
