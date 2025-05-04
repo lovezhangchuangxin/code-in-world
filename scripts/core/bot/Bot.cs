@@ -49,7 +49,7 @@ public partial class Bot : Sprite2D
         Vector2I pos = GetPos();
         Vector2I newPos = pos + pace;
         Vector2I targetPos = MapUtils.GlobalTileToPixel(newPos);
-        UseTween("global_position", (Vector2)targetPos, Game.TickTime);
+        UseTween("global_position", (Vector2)targetPos, Game.TickTime * 0.8);
     }
 
     /// <summary>
@@ -65,8 +65,19 @@ public partial class Bot : Sprite2D
     /// </summary>
     public void UseTween(NodePath property, Variant finalValue, double duration)
     {
+        Callable callable = Callable.From(() =>
+        {
+            Tween.Kill();
+            Tween = null;
+        });
+
+        if (Tween.IsRunning())
+        {
+            GD.Print("Tween is running, stop it first.");
+            callable.Call();
+        }
         Tween.TweenProperty(this, property, finalValue, duration);
-        Tween.TweenCallback(Callable.From(() => Tween = null)).SetDelay(Game.TickTime);
+        Tween.TweenCallback(callable).SetDelay(Game.TickTime);
     }
 
     /// <summary>
