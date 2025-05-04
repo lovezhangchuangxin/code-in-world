@@ -14,6 +14,7 @@ ChunkParent = NodePath("Chunks")
 World = NodePath("World")
 TileSet = ExtResource("2_8rj4w")
 MapGenerator = NodePath("MapGenerator")
+ExtraLoadRange = 9
 
 [node name="MapGenerator" type="Node" parent="MapLoader"]
 script = ExtResource("2_qdgof")

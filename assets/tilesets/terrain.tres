@@ -1,16 +1,38 @@
-[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://dp7pwlln70v26"]
+[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://dp7pwlln70v26"]
 
-[ext_resource type="Texture2D" uid="uid://c3cvj7npnoae0" path="res://assets/images/terrains/rock.png" id="1_fxl1w"]
 [ext_resource type="Shader" uid="uid://ddrow7t1fg5s6" path="res://shaders/water_shader.gdshader" id="2_6pcam"]
+[ext_resource type="Texture2D" uid="uid://b0fuhek3lplde" path="res://assets/images/terrains/swamp.png" id="3_6pcam"]
 [ext_resource type="Texture2D" uid="uid://0hctcdmctfd1" path="res://assets/images/terrains/water.png" id="3_i23q2"]
 [ext_resource type="Texture2D" uid="uid://cvk5cs538usxt" path="res://assets/images/terrains/ground.png" id="4_6pcam"]
+[ext_resource type="Texture2D" uid="uid://dlmrp6ben3i1t" path="res://assets/images/terrains/wall.png" id="4_i23q2"]
 [ext_resource type="Texture2D" uid="uid://cttrfnno6e4et" path="res://assets/images/terrains/sand.png" id="4_rcva6"]
+[ext_resource type="Texture2D" uid="uid://uqkig2aklmc5" path="res://assets/images/terrains/coal.png" id="7_5bf7n"]
+[ext_resource type="Texture2D" uid="uid://5jrgjey32nb6" path="res://assets/images/terrains/copper.png" id="8_dttwk"]
+[ext_resource type="Texture2D" uid="uid://duk1k3aoy4ydf" path="res://assets/images/terrains/iron.png" id="9_vrvbw"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w7ksa"]
-texture = ExtResource("1_fxl1w")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i23q2"]
+texture = ExtResource("4_6pcam")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = 1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rcva6"]
+texture = ExtResource("4_rcva6")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = 2
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tvebc"]
+texture = ExtResource("3_6pcam")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/custom_data_0 = 3
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5bf7n"]
+texture = ExtResource("4_i23q2")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/custom_data_0 = 4
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w7ksa"]
 shader = ExtResource("2_6pcam")
@@ -29,23 +51,33 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/material = SubResource("ShaderMaterial_w7ksa")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jx7cg"]
-texture = ExtResource("4_rcva6")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1u5qq"]
+texture = ExtResource("7_5bf7n")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/custom_data_0 = 2
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6pcam"]
-texture = ExtResource("4_6pcam")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_im4o5"]
+texture = ExtResource("8_dttwk")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/custom_data_0 = 1
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i0xkb"]
+texture = ExtResource("9_vrvbw")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
 
 [resource]
 tile_size = Vector2i(32, 32)
+terrain_set_0/mode = 2
+terrain_set_0/terrain_0/name = "swamp"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 custom_data_layer_0/name = "type"
 custom_data_layer_0/type = 2
 sources/4 = SubResource("TileSetAtlasSource_ds21a")
-sources/8 = SubResource("TileSetAtlasSource_jx7cg")
-sources/10 = SubResource("TileSetAtlasSource_w7ksa")
-sources/9 = SubResource("TileSetAtlasSource_6pcam")
+sources/0 = SubResource("TileSetAtlasSource_i23q2")
+sources/1 = SubResource("TileSetAtlasSource_rcva6")
+sources/2 = SubResource("TileSetAtlasSource_tvebc")
+sources/3 = SubResource("TileSetAtlasSource_5bf7n")
+sources/5 = SubResource("TileSetAtlasSource_1u5qq")
+sources/6 = SubResource("TileSetAtlasSource_im4o5")
+sources/7 = SubResource("TileSetAtlasSource_i0xkb")

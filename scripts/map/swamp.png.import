@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lyu1apepkbux"
-path="res://.godot/imported/coal.png-356dd79d4151dd98cd7560dcab469d6c.ctex"
+uid="uid://dvwjie0ggtxph"
+path="res://.godot/imported/swamp.png-0cfd4a9dacf95038622c82378ee350c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/resources/coal.png"
-dest_files=["res://.godot/imported/coal.png-356dd79d4151dd98cd7560dcab469d6c.ctex"]
+source_file="res://scripts/map/swamp.png"
+dest_files=["res://.godot/imported/swamp.png-0cfd4a9dacf95038622c82378ee350c4.ctex"]
 
 [params]
 

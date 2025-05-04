@@ -1,7 +1,7 @@
 using Godot;
 
 /// <summary>
-/// 地形类型
+/// 地形类型，注意，这里的地形并不是 Godot 的地形，仅仅只是指瓦片类型
 /// </summary>
 public enum TerrainType
 {
@@ -18,9 +18,13 @@ public enum TerrainType
     /// </summary>
     Sand,
     /// <summary>
-    /// 岩石
+    /// 沼泽
     /// </summary>
-    Rock
+    Swamp,
+    /// <summary>
+    /// 墙壁
+    /// </summary>
+    Wall,
 }
 
 /// <summary>

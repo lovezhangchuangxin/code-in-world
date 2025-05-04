@@ -36,6 +36,18 @@ public partial class MapGenerator : Node
                 {
                     chunkData.SetTileData(tileCoord, 0, TerrainType.Ground);
                 }
+                else if (temperature < 0.55)
+                {
+                    chunkData.SetTileData(tileCoord, 0, TerrainType.Swamp);
+                }
+                else if (temperature < 0.6)
+                {
+                    chunkData.SetTileData(tileCoord, 0, TerrainType.Ground);
+                }
+                else if (temperature < 0.7)
+                {
+                    chunkData.SetTileData(tileCoord, 0, TerrainType.Wall);
+                }
                 else
                 {
                     chunkData.SetTileData(tileCoord, 0, TerrainType.Water);

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkur0sqxy2jb4"
-path="res://.godot/imported/iron.png-ca9083812afcfd092dfb608347b15bce.ctex"
+uid="uid://uqkig2aklmc5"
+path="res://.godot/imported/coal.png-4100e34f7c3a93ae96f5b9f5ce7a8509.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/resources/iron.png"
-dest_files=["res://.godot/imported/iron.png-ca9083812afcfd092dfb608347b15bce.ctex"]
+source_file="res://assets/images/terrains/coal.png"
+dest_files=["res://.godot/imported/coal.png-4100e34f7c3a93ae96f5b9f5ce7a8509.ctex"]
 
 [params]
 
